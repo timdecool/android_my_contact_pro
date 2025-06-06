@@ -1,10 +1,13 @@
 package com.ipi.mycontactpro.pojo;
 
 import androidx.room.ColumnInfo;
+import androidx.room.Entity;
+import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
 import java.io.Serializable;
 
+@Entity
 public class Contact implements Serializable {
 
     @PrimaryKey(autoGenerate = true)
@@ -36,6 +39,7 @@ public class Contact implements Serializable {
 
     public Contact() {}
 
+    @Ignore
     public Contact(String lastName, String firstName, String company, String address, String phone, String email, String sector) {
         this.lastName = lastName;
         this.firstName = firstName;
