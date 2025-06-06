@@ -41,6 +41,7 @@ public class DetailActivity extends AppCompatActivity {
     private Button btnCall;
     private Button btnLocate;
     private Button btnSms;
+    private Button btnFav;
     private Contact contact;
 
 
@@ -66,6 +67,7 @@ public class DetailActivity extends AppCompatActivity {
         btnCall = findViewById(R.id.btnCall);
         btnLocate = findViewById(R.id.btnLocate);
         btnSms = findViewById(R.id.btnSms);
+        btnFav = findViewById(R.id.btnFav);
 
         // Set texts based on intent
         Intent intent = getIntent();
@@ -83,6 +85,7 @@ public class DetailActivity extends AppCompatActivity {
         btnCall.setOnClickListener(v -> startCall());
         btnLocate.setOnClickListener(v -> locate());
         btnSms.setOnClickListener(v -> sendSms());
+        btnFav.setOnClickListener(v -> toggleFav());
 
         // Toolbar integration
         Toolbar toolbar = findViewById(R.id.toolbar);
@@ -137,6 +140,20 @@ public class DetailActivity extends AppCompatActivity {
             intent.setData(Uri.parse("geo:0,0?q=" + contact.getAddress()));
             startActivity(intent);
         }
+    }
+
+    public void toggleFav() {
+        if(contact.getFavorite() == 0)
+        {
+            contact.setFavorite(1);
+            btnFav.setText("Retirer des favoris");
+        }
+        else
+        {
+            contact.setFavorite(0);
+            btnFav.setText("Ajouter aux favoris");
+        }
+        ContactDatabase.getDb(context).contactDAO().update(contact);
     }
 
     @Override

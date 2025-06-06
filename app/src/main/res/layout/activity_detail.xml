@@ -137,6 +137,7 @@
 
             <!-- Boutons actions -->
             <LinearLayout
+                android:id="@+id/buttons"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
@@ -170,5 +171,16 @@
                     android:layout_weight="1"
                     android:text="SMS" />
             </LinearLayout>
+
+    <Button
+        android:id="@+id/btnFav"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        app:layout_constraintTop_toBottomOf="@id/buttons"
+        android:text="Ajouter aux favoris" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
