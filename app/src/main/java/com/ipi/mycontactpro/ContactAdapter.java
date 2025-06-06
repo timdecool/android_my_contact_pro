@@ -38,7 +38,7 @@ public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.ContactV
 
         public void bind(final Contact contact, final OnContactClickListener listener) {
 
-            ivSeeMore.setOnClickListener(v -> {
+            itemView.setOnClickListener(v -> {
                 listener.onContactClick(contact);
             });
         }

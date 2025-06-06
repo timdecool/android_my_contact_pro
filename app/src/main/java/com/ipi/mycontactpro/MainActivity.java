@@ -24,6 +24,7 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
+    private final String KEY_CONTACT = "contact";
     private Context context;
     private RecyclerView rvContacts;
 
@@ -60,9 +61,9 @@ public class MainActivity extends AppCompatActivity {
             List<Contact> contacts = ContactDatabase.getDb(context).contactDAO().list();
 
             ContactAdapter contactAdapter = new ContactAdapter(contacts, contact -> {
-//                Intent intent = new Intent(context, DetailActivity.class);
-//                intent.putExtra(KEY_TODO, todo);
-//                startActivity(intent);
+                Intent intent = new Intent(context, DetailActivity.class);
+                intent.putExtra(KEY_CONTACT, contact);
+                startActivity(intent);
             });
             rvContacts.setAdapter(contactAdapter);
         })).start();
