@@ -148,13 +148,15 @@ public class DetailActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         if (item.getItemId() == R.id.updateContact) {
-//            Intent intent = new Intent(context, UpdateContactActivity.class);
-//            startActivity(intent);
-//            return  true;
+            Intent intent = new Intent(context, UpdateContactActivity.class);
+            intent.putExtra(MainActivity.KEY_CONTACT, contact);
+            startActivity(intent);
+            return true;
         }
         else if(item.getItemId() == R.id.deleteContact) {
             ContactDatabase.getDb(context).contactDAO().delete(contact);
             finish();
+            return true;
         }
 
         return super.onOptionsItemSelected(item);
