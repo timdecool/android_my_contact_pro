@@ -7,8 +7,10 @@
     <string name="phone">Téléphone</string>
     <string name="email">Email</string>
     <string name="company">Société</string>
+    <string name="sector">Secteur</string>
     <string name="add">Ajouter</string>
     <string name="cancel">Annuler</string>
+
     <string-array name="sectors_array">
         <item>Industrie</item>
         <item>Informatique</item>

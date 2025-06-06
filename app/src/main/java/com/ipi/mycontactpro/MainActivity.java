@@ -24,7 +24,7 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
-    private final String KEY_CONTACT = "contact";
+    public static final String KEY_CONTACT = "contact";
     private Context context;
     private RecyclerView rvContacts;
 
