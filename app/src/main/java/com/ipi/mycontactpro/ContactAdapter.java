@@ -3,6 +3,7 @@ package com.ipi.mycontactpro;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -26,15 +27,18 @@ public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.ContactV
         public TextView tvFullName;
         public TextView tvCompany;
 
+        public ImageView ivSeeMore;
+
         public ContactViewHolder(View itemView) {
             super(itemView);
             tvFullName = itemView.findViewById(R.id.tvFullName);
             tvCompany = itemView.findViewById(R.id.tvCompany);
+            ivSeeMore = itemView.findViewById(R.id.ivSeeMore);
         }
 
         public void bind(final Contact contact, final OnContactClickListener listener) {
 
-            itemView.setOnClickListener(v -> {
+            ivSeeMore.setOnClickListener(v -> {
                 listener.onContactClick(contact);
             });
         }
