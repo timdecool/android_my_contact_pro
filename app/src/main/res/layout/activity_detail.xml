@@ -19,7 +19,6 @@
         app:layout_constraintStart_toStartOf="parent"
         />
 
-
             <!-- Carte contenant les informations -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/cardDetail"

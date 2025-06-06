@@ -1,6 +1,8 @@
 <resources>
     <string name="app_name">MyContactPro</string>
     <string name="menu_add">Ajouter un contact</string>
+    <string name="menu_update">Éditer</string>
+    <string name="menu_delete">Supprimer</string>
     <string name="first_name">Prénom</string>
     <string name="last_name">Nom</string>
     <string name="address">Adresse</string>
@@ -10,6 +12,7 @@
     <string name="sector">Secteur</string>
     <string name="add">Ajouter</string>
     <string name="cancel">Annuler</string>
+
 
     <string-array name="sectors_array">
         <item>Industrie</item>

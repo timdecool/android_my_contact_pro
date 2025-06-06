@@ -6,11 +6,14 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -20,6 +23,7 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.ipi.mycontactpro.database.ContactDatabase;
 import com.ipi.mycontactpro.pojo.Contact;
 
 public class DetailActivity extends AppCompatActivity {
@@ -133,5 +137,26 @@ public class DetailActivity extends AppCompatActivity {
             intent.setData(Uri.parse("geo:0,0?q=" + contact.getAddress()));
             startActivity(intent);
         }
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_details, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        if (item.getItemId() == R.id.updateContact) {
+//            Intent intent = new Intent(context, UpdateContactActivity.class);
+//            startActivity(intent);
+//            return  true;
+        }
+        else if(item.getItemId() == R.id.deleteContact) {
+            ContactDatabase.getDb(context).contactDAO().delete(contact);
+            finish();
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 }
