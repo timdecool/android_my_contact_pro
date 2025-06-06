@@ -13,10 +13,18 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.ipi.mycontactpro.database.ContactDatabase;
+import com.ipi.mycontactpro.pojo.Contact;
+
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
     private Context context;
+    private RecyclerView rvContacts;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,10 +40,31 @@ public class MainActivity extends AppCompatActivity {
 
         context = getApplicationContext();
 
+        rvContacts = findViewById(R.id.rvContact);
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(context);
+        rvContacts.setHasFixedSize(true);
+        rvContacts.setLayoutManager(layoutManager);
+
         // Toolbar integration
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+        new Thread(() -> runOnUiThread(() -> {
+            List<Contact> contacts = ContactDatabase.getDb(context).contactDAO().list();
+
+            ContactAdapter contactAdapter = new ContactAdapter(contacts, contact -> {
+//                Intent intent = new Intent(context, DetailActivity.class);
+//                intent.putExtra(KEY_TODO, todo);
+//                startActivity(intent);
+            });
+            rvContacts.setAdapter(contactAdapter);
+        })).start();
     }
 
     @Override
