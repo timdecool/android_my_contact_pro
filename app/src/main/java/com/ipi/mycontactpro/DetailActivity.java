@@ -79,6 +79,9 @@ public class DetailActivity extends AppCompatActivity {
             tvEmail.setText(contact.getEmail());
             tvSector.setText(contact.getSector());
             tvAddress.setText(contact.getAddress());
+            if(contact.getFavorite() == 1) {
+                btnFav.setText("Retirer des favoris");
+            }
         }
 
         // Button events

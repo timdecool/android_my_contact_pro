@@ -5,4 +5,9 @@
         android:id="@+id/addContact"
         android:title="@string/menu_add"
         app:showAsAction="never"/>
+
+    <item
+        android:id="@+id/favorites"
+        android:title="Favoris"
+        app:showAsAction="never"/>
 </menu>
