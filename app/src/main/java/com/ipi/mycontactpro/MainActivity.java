@@ -41,7 +41,6 @@ public class MainActivity extends AppCompatActivity {
             return insets;
         });
 
-        // Context
         context = getApplicationContext();
         initView();
         setupToolbar();
@@ -62,14 +61,11 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-        List<Contact> contacts = ContactDatabase.getDb(context).contactDAO().list();
         displayList(false);
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-
-        // crée le menu
         getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
     }
