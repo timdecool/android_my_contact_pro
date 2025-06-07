@@ -57,7 +57,12 @@ public class DetailActivity extends AppCompatActivity {
         });
 
         context = getApplicationContext();
-        // Find views
+        initView();
+        setupListeners();
+        setupToolbar();
+    }
+
+    private void initView() {
         tvFullName = findViewById(R.id.tvFullName);
         tvCompany = findViewById(R.id.tvCompany);
         tvPhone = findViewById(R.id.tvPhone);
@@ -69,7 +74,6 @@ public class DetailActivity extends AppCompatActivity {
         btnSms = findViewById(R.id.btnSms);
         btnFav = findViewById(R.id.btnFav);
 
-        // Set texts based on intent
         Intent intent = getIntent();
         contact = (Contact)intent.getSerializableExtra(MainActivity.KEY_CONTACT);
         if(contact != null) {
@@ -83,18 +87,20 @@ public class DetailActivity extends AppCompatActivity {
                 btnFav.setText(getString(R.string.delete_favorite));
             }
         }
+    }
+    private void setupToolbar() {
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setDisplayHomeAsUpEnabled(true);
+    }
 
-        // Button events
+    private void setupListeners() {
         btnCall.setOnClickListener(v -> startCall());
         btnLocate.setOnClickListener(v -> locate());
         btnSms.setOnClickListener(v -> sendSms());
         btnFav.setOnClickListener(v -> toggleFav());
 
-        // Toolbar integration
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        ActionBar actionBar = getSupportActionBar();
-        actionBar.setDisplayHomeAsUpEnabled(true);
     }
 
     public void startCall() {

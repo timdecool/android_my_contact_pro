@@ -43,17 +43,20 @@ public class MainActivity extends AppCompatActivity {
 
         // Context
         context = getApplicationContext();
+        initView();
+        setupToolbar();
+    }
 
-        // Recycler view
+    private void setupToolbar() {
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+    }
+
+    private void initView() {
         rvContacts = findViewById(R.id.rvContact);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(context);
         rvContacts.setHasFixedSize(true);
         rvContacts.setLayoutManager(layoutManager);
-
-        // Toolbar integration
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-
     }
 
     @Override
