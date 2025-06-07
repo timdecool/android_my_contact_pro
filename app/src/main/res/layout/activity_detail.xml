@@ -154,7 +154,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="APPELER" />
+                    android:text="@string/call" />
 
                 <Button
                     android:id="@+id/btnLocate"
@@ -162,14 +162,14 @@
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="8dp"
                     android:layout_weight="1"
-                    android:text="LOCALISER" />
+                    android:text="@string/localise" />
 
                 <Button
                     android:id="@+id/btnSms"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="SMS" />
+                    android:text="@string/sms" />
             </LinearLayout>
 
     <Button
@@ -181,6 +181,6 @@
         android:layout_marginStart="10dp"
         android:layout_marginEnd="10dp"
         app:layout_constraintTop_toBottomOf="@id/buttons"
-        android:text="Ajouter aux favoris" />
+        android:text="@string/add_favorite" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

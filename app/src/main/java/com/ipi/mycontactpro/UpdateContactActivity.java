@@ -93,7 +93,7 @@ public class UpdateContactActivity extends AppCompatActivity {
 
     public void updateContact() {
         if(!isFormComplete()) {
-            Toast toast = Toast.makeText(context, "Certains champs sont vides ou incorrects", Toast.LENGTH_SHORT);
+            Toast toast = Toast.makeText(context, getString(R.string.incorrect_form), Toast.LENGTH_SHORT);
             toast.show();
         }
         else {

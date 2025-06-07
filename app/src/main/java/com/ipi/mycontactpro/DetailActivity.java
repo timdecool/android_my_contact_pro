@@ -80,7 +80,7 @@ public class DetailActivity extends AppCompatActivity {
             tvSector.setText(contact.getSector());
             tvAddress.setText(contact.getAddress());
             if(contact.getFavorite() == 1) {
-                btnFav.setText("Retirer des favoris");
+                btnFav.setText(getString(R.string.delete_favorite));
             }
         }
 
@@ -149,12 +149,12 @@ public class DetailActivity extends AppCompatActivity {
         if(contact.getFavorite() == 0)
         {
             contact.setFavorite(1);
-            btnFav.setText("Retirer des favoris");
+            btnFav.setText(getString(R.string.delete_favorite));
         }
         else
         {
             contact.setFavorite(0);
-            btnFav.setText("Ajouter aux favoris");
+            btnFav.setText(getString(R.string.add_favorite));
         }
         ContactDatabase.getDb(context).contactDAO().update(contact);
     }

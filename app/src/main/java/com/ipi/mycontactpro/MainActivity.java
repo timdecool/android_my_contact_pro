@@ -81,7 +81,7 @@ public class MainActivity extends AppCompatActivity {
         else if(item.getItemId() == R.id.favorites) {
                 favoriteMode = !favoriteMode;
                 displayList(favoriteMode);
-                item.setTitle(favoriteMode ? "Tous les contacts":"Favoris");
+                item.setTitle(favoriteMode ? getString(R.string.menu_all):getString(R.string.menu_favorites));
         }
 
         return super.onOptionsItemSelected(item);
